@@ -7,16 +7,25 @@ import MyOrders from "./components/MyOrders";
 import Login from "./components/Login";
 // import "../style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import OrderList from "./components/OrderList";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: localStorage.getItem('name')
-
+      name: localStorage.getItem("name"),
     };
   }
+
+  getLoggedUser = () => {
+    return localStorage.getItem("name");
+  };
 
   render() {
     return (
@@ -25,10 +34,21 @@ class App extends Component {
         <div className="container">
           <Switch>
             <Route path="/items">
-              <BakeryItems />
+              {() =>
+                this.getLoggedUser() ? (
+                  <BakeryItems />
+                ) : (
+                  <Redirect to="/login" />
+                )
+              }
             </Route>
             <Route path="/myorders">
-              <MyOrders />
+              {() =>
+                this.getLoggedUser() ? <MyOrders /> : <Redirect to="/login" />
+              }
+            </Route>
+            <Route path="/orderList">
+              <OrderList />
             </Route>
             <Route path="/login">
               <Login />
