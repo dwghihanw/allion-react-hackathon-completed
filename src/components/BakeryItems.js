@@ -22,6 +22,10 @@ class BakeryItems extends Component {
     });
   }
 
+  componentDidMount() {
+  
+  }
+
   itemsList() {
     return this.state.items.map((item) => {
       return (

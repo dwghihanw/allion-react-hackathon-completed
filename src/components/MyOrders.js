@@ -70,7 +70,7 @@ class MyOrders extends Component {
   }
 
   orderMore = () => {
-    this.props.history.push("/items");
+    this.props.history.push("/");
   };
 
   orderButton() {

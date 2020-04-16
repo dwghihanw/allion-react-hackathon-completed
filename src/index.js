@@ -33,14 +33,8 @@ class App extends Component {
         <Navigation />
         <div className="container">
           <Switch>
-            <Route path="/items">
-              {() =>
-                this.getLoggedUser() ? (
-                  <BakeryItems />
-                ) : (
-                  <Redirect to="/login" />
-                )
-              }
+            <Route  exact path="/">
+                <BakeryItems />
             </Route>
             <Route path="/myorders">
               {() =>

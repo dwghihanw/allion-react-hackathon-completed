@@ -36,26 +36,18 @@ class Navigation extends Component {
         </h5>
         {localStorage.getItem("name") ? (
           <nav className="my-2 my-md-0 mr-md-3">
-            <Link className="p-2 text-dark" to="/items">
-              Bakery Items
-            </Link>
-            |
             <Link className="p-2 text-dark" to="/myorders">
               My Order
             </Link>
             |
-            <Link className="p-2 text-dark" to="/orders">
-              Orders
-            </Link>
-            |
             <Link className="p-2 text-dark" to="/orderList">
-              Today's Complete Order
+              Today Orders
             </Link>
           </nav>
         ) : (
           <nav className="my-2 my-md-0 mr-md-3">
             <Link className="p-2 text-dark" to="/orderList">
-              Today's Complete Order
+              Today Orders
             </Link>
           </nav>
         )}
